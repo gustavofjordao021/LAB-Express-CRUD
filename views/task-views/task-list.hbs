@@ -1,0 +1,10 @@
+<h1>{{pageTitle}}</h1>
+<div class="">
+  {{#each tasks}}
+  <div>
+    {{!-- <h3>{{this.title}}</h3> --}}
+    {{!-- <h5>{{this.priority}}</h5> --}}
+    <a href="/task-details/{{this._id}}">{{this.title}} : {{this.priority}}</a>
+  </div>
+  {{/each}}
+</div>
