@@ -1,3 +1,12 @@
 <h1>{{pageTitle}}</h1>
 <h3>Description: {{task.description}}</h3>
 <h4>Priority: {{task.priority}}</h4>
+
+<form action="/task-details/{{task._id}}/delete" method="DELETE">
+    <button type="submit">Delete task</button> 
+</form>
+
+<form action="/task-details/{{task._id}}/update" method="get">
+    <button type="submit">Update task</button> 
+</form>
+

@@ -1,6 +1,5 @@
 // Dependencies
 require('dotenv').config();
-
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express      = require('express');
@@ -34,11 +33,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup
-// app.use(require('node-sass-middleware')({
-//   src:  path.join(__dirname, 'public'),
-//   dest: path.join(__dirname, 'public'),
-//   sourceMap: true
-// }));      
+app.use(require('node-sass-middleware')({
+  src:  path.join(__dirname, 'public'),
+  dest: path.join(__dirname, 'public'),
+  sourceMap: true
+}));      
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -52,6 +51,10 @@ app.locals.title = 'Express - Generated with IronGenerator';
 const index = require('./routes/index');
 const formPage = require("./routes/create-read/form-page")
 app.use('/', index);
-app.use('/', formPage)
+app.use('/', formPage);
+
+app.listen(3000, () =>
+  console.log('My CRUD project is running on port 3000')
+);
 
 module.exports = app;
